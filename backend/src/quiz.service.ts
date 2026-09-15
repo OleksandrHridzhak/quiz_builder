@@ -19,7 +19,7 @@ export async function getQuizById(id: string) {
     where: { id },
     include: {
       questions: {
-        include: { options: true },
+        include: { options: { orderBy: { order: 'asc' } } },
         orderBy: { order: 'asc' },
       },
     },
@@ -60,7 +60,7 @@ export async function createQuiz(input: CreateQuizInput) {
     },
     include: {
       questions: {
-        include: { options: true },
+        include: { options: { orderBy: { order: 'asc' } } },
         orderBy: { order: 'asc' },
       },
     },
