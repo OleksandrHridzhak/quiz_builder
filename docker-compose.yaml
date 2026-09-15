@@ -11,6 +11,43 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: quiz_builder_backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-quiz_builder}?schema=public
+      SEED_DB: ${SEED_DB:-false}
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3000}
+    container_name: quiz_builder_frontend
+    restart: unless-stopped
+    environment:
+      # Used for server-side rendering inside the container, which can't reach
+      # the host's localhost — NEXT_PUBLIC_API_URL is for the browser only.
+      API_URL: http://backend:3000
+    ports:
+      - "3001:3001"
+    depends_on:
+      - backend
 
 volumes:
   postgres_data:

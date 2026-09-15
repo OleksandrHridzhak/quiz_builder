@@ -42,7 +42,11 @@ export interface QuizSummary {
   questionCount: number;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000';
+// Server-side code  runs inside the Next.js container/process, so it needs a URL reachable from there
+const API_URL =
+  typeof window === 'undefined'
+    ? (process.env.API_URL ?? process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000')
+    : (process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000');
 
 export async function createQuiz(payload: CreateQuizPayload): Promise<Quiz> {
   const res = await fetch(`${API_URL}/quizzes`, {
