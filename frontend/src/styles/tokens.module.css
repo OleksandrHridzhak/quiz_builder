@@ -1,0 +1,34 @@
+/* design.md tokens (Pitch) */
+.tokens {
+  --color-primary: #6b53ff;
+  --color-primary-deep: #8d49f7;
+  --color-yellow: #ffd02c;
+  --color-ink: #2b2a35;
+  --color-ink-deep: #1e1d28;
+  --color-ink-soft: #3f4250;
+  --color-muted: #6f7387;
+  --color-canvas: #ffffff;
+  --color-hairline: #dddfe5;
+
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+
+  --space-xs: 6px;
+  --space-sm: 15px;
+  --space-base: 20px;
+  --space-md: 24px;
+  --space-lg: 40px;
+
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  /* --font-display / --font-body come from the Inter/Manrope next/font
+     variables (see styles/fonts.ts) applied alongside this class */
+  font-family: var(--font-body), sans-serif;
+}
+
+/* Full-page layout, for the top-level <main> on each route */
+.page {
+  display: block;
+  min-height: 100vh;
+}

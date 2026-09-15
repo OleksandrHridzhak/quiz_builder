@@ -1,45 +1,3 @@
-.page {
-  /* design.md tokens (Pitch) */
-  --color-primary: #6b53ff;
-  --color-primary-deep: #8d49f7;
-  --color-yellow: #ffd02c;
-  --color-ink: #2b2a35;
-  --color-ink-deep: #1e1d28;
-  --color-ink-soft: #3f4250;
-  --color-muted: #6f7387;
-  --color-canvas: #ffffff;
-  --color-hairline: #dddfe5;
-
-  --radius-xs: 3px;
-  --radius-sm: 6px;
-  --radius-md: 8px;
-
-  --space-xs: 6px;
-  --space-sm: 15px;
-  --space-base: 20px;
-  --space-md: 24px;
-  --space-lg: 40px;
-
-  display: block;
-  min-height: 100vh;
-  background: var(--color-canvas);
-  color: var(--color-ink);
-  /* --font-display / --font-body come from the Inter/Manrope next/font
-     variables applied on this element (Mark Pro / Eina01 substitutes) */
-  font-family: var(--font-body), sans-serif;
-}
-
-.eyebrow {
-  font-family: var(--font-display), sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.3px;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  text-align: center;
-  margin: var(--space-lg) 0 var(--space-xs);
-}
-
 .heading {
   font-family: var(--font-display), sans-serif;
   font-weight: 800;
@@ -48,5 +6,5 @@
   letter-spacing: -0.84px;
   color: var(--color-ink);
   text-align: center;
-  margin: 0 0 var(--space-md);
+  margin: var(--space-lg) 0 var(--space-md);
 }
