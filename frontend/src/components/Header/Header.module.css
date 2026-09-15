@@ -1,11 +1,25 @@
 .header {
   display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--space-base, 20px);
   padding: var(--space-sm, 15px) var(--space-base, 20px);
   border-bottom: 1px solid var(--color-hairline, #dddfe5);
   background: var(--color-canvas, #fff);
+}
+
+@media (max-width: 480px) {
+  .header {
+    gap: var(--space-sm, 15px);
+  }
+
+  .nav {
+    gap: var(--space-sm, 15px);
+  }
 }
 
 .brand {

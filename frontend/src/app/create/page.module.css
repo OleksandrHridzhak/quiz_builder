@@ -8,3 +8,10 @@
   text-align: center;
   margin: var(--space-lg) 0 var(--space-md);
 }
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: 28px;
+    margin: var(--space-md) 0 var(--space-base);
+  }
+}
