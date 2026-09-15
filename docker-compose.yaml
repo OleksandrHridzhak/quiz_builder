@@ -8,11 +8,12 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       POSTGRES_DB: ${POSTGRES_DB:-quiz_builder}
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-postgres}']
       interval: 5s
       timeout: 5s
       retries: 10
@@ -26,7 +27,7 @@ services:
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-quiz_builder}?schema=public
     ports:
-      - "3000:3000"
+      - '3000:3000'
     depends_on:
       postgres:
         condition: service_healthy
@@ -44,9 +45,14 @@ services:
       # the host's localhost — NEXT_PUBLIC_API_URL is for the browser only.
       API_URL: http://backend:3000
     ports:
-      - "3001:3001"
+      - '3001:3001'
+    # Also waits on Postgres directly (not just backend's container start),
+    # so the whole stack blocks on the database being healthy first.
     depends_on:
-      - backend
+      postgres:
+        condition: service_healthy
+      backend:
+        condition: service_started
 
 volumes:
   postgres_data:

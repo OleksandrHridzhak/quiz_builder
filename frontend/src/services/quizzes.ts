@@ -42,7 +42,6 @@ export interface QuizSummary {
   questionCount: number;
 }
 
-// Server-side code  runs inside the Next.js container/process, so it needs a URL reachable from there
 const API_URL =
   typeof window === 'undefined'
     ? (process.env.API_URL ?? process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000')
