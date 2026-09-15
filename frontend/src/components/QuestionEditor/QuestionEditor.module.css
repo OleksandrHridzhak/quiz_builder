@@ -1,0 +1,123 @@
+.question {
+  border: 1px solid var(--color-hairline, #dddfe5);
+  border-radius: var(--radius-sm, 6px);
+  padding: var(--space-md, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base, 20px);
+  background: var(--color-canvas, #fff);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.badge {
+  font-family: var(--font-display, inherit), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: var(--color-primary, #6b53ff);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs, 6px);
+  font-family: var(--font-body, inherit), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-ink, #2b2a35);
+}
+
+.field input[type='text'],
+.field select {
+  padding: 8px 12px;
+  height: 40px;
+  border: 1px solid var(--color-hairline, #dddfe5);
+  border-radius: var(--radius-xs, 3px);
+  font-family: var(--font-body, inherit), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background: var(--color-canvas, #fff);
+  color: var(--color-ink, #2b2a35);
+}
+
+.field input[type='text']:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--color-primary, #6b53ff);
+  box-shadow: 0 0 0 3px rgba(107, 83, 255, 0.15);
+}
+
+.radioGroup {
+  display: flex;
+  gap: var(--space-base, 20px);
+  font-family: var(--font-body, inherit), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.radioGroup label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.optionInput {
+  flex: 1;
+}
+
+.removeButton,
+.removeOptionButton,
+.addOptionButton {
+  cursor: pointer;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--color-hairline, #dddfe5);
+  background: transparent;
+  font-family: var(--font-body, inherit), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.removeButton {
+  padding: 6px 14px;
+  color: #b3261e;
+  border-color: #f0c9c5;
+}
+
+.removeButton:disabled,
+.removeOptionButton:disabled {
+  color: var(--color-muted, #6f7387);
+  border-color: var(--color-hairline, #dddfe5);
+  cursor: not-allowed;
+}
+
+.removeOptionButton {
+  width: 32px;
+  height: 32px;
+  line-height: 1;
+  color: #b3261e;
+  border-radius: var(--radius-xs, 3px);
+}
+
+.addOptionButton {
+  align-self: flex-start;
+  padding: 6px 14px;
+  margin-top: 4px;
+  color: var(--color-primary, #6b53ff);
+  border-color: var(--color-primary, #6b53ff);
+}
+
+.addOptionButton:hover {
+  background: rgba(107, 83, 255, 0.06);
+}

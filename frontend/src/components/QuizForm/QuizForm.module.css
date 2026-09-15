@@ -1,0 +1,93 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md, 24px);
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 var(--space-base, 20px) var(--space-lg, 40px);
+}
+
+.titleField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs, 6px);
+  font-family: var(--font-body, inherit), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-ink, #2b2a35);
+}
+
+.titleField input {
+  padding: 8px 12px;
+  height: 40px;
+  border: 1px solid var(--color-hairline, #dddfe5);
+  border-radius: var(--radius-xs, 3px);
+  font-family: var(--font-body, inherit), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background: var(--color-canvas, #fff);
+  color: var(--color-ink, #2b2a35);
+}
+
+.titleField input:focus {
+  outline: none;
+  border-color: var(--color-primary, #6b53ff);
+  box-shadow: 0 0 0 3px rgba(107, 83, 255, 0.15);
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base, 20px);
+}
+
+.addQuestionButton {
+  align-self: flex-start;
+  padding: 8px 16px;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--color-primary, #6b53ff);
+  background: transparent;
+  color: var(--color-primary, #6b53ff);
+  font-family: var(--font-body, inherit), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.addQuestionButton:hover {
+  background: rgba(107, 83, 255, 0.06);
+}
+
+.submitButton {
+  padding: 15px 24px;
+  height: 48px;
+  border-radius: var(--radius-md, 8px);
+  border: none;
+  background: var(--color-primary, #6b53ff);
+  color: var(--color-canvas, #fff);
+  font-family: var(--font-body, inherit), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: var(--color-primary-deep, #8d49f7);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error {
+  font-family: var(--font-body, inherit), sans-serif;
+  color: #b3261e;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
