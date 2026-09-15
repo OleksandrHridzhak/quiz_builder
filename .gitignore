@@ -1,2 +1,6 @@
 # Task specification
 TASK.MD
+
+# env files
+.env
+.env*.local
