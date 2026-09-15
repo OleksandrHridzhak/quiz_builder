@@ -1,0 +1,20 @@
+.heading {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 1.2;
+  letter-spacing: -0.84px;
+  color: var(--color-ink);
+  text-align: center;
+  margin: var(--space-lg) 0 var(--space-md);
+}
+
+.questions {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 var(--space-base, 20px) var(--space-lg, 40px);
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base, 20px);
+}
