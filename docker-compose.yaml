@@ -25,7 +25,6 @@ services:
     restart: unless-stopped
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-quiz_builder}?schema=public
-      SEED_DB: ${SEED_DB:-false}
     ports:
       - "3000:3000"
     depends_on:
