@@ -34,6 +34,14 @@ export interface Quiz {
   }>;
 }
 
+export interface QuizSummary {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+  questionCount: number;
+}
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000';
 
 export async function createQuiz(payload: CreateQuizPayload): Promise<Quiz> {
@@ -49,4 +57,37 @@ export async function createQuiz(payload: CreateQuizPayload): Promise<Quiz> {
   }
 
   return res.json();
+}
+
+export async function listQuizzes(): Promise<QuizSummary[]> {
+  const res = await fetch(`${API_URL}/quizzes`, { cache: 'no-store' });
+
+  if (!res.ok) {
+    throw new Error('Failed to load quizzes');
+  }
+
+  return res.json();
+}
+
+export async function getQuiz(id: string): Promise<Quiz | null> {
+  const res = await fetch(`${API_URL}/quizzes/${id}`, { cache: 'no-store' });
+
+  if (res.status === 404) {
+    return null;
+  }
+
+  if (!res.ok) {
+    throw new Error('Failed to load quiz');
+  }
+
+  return res.json();
+}
+
+export async function deleteQuiz(id: string): Promise<void> {
+  const res = await fetch(`${API_URL}/quizzes/${id}`, { method: 'DELETE' });
+
+  if (!res.ok && res.status !== 404) {
+    const data = await res.json().catch(() => null);
+    throw new Error(data?.error ?? 'Failed to delete quiz');
+  }
 }

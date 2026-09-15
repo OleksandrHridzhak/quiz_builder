@@ -1,0 +1,10 @@
+.heading {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 1.2;
+  letter-spacing: -0.84px;
+  color: var(--color-ink);
+  text-align: center;
+  margin: var(--space-lg) 0 var(--space-md);
+}
